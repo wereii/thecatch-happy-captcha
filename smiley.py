@@ -23,7 +23,7 @@ def add_header(response):
 
 @app.route('/')
 def selection():
-        current_app.start = time.time()
+    current_app.start = time.time()
     r = requests.get(url=url)
     image = bytearray(r.content)
     size = Image.open(BytesIO(image)).size
