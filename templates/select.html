@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible">
+    <title>Happy Captcha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <form id="redirect" method="POST">
+        <img src="{{ url_for('static', filename='smiley.png') }}" usemap="#Map">
+        <map name="Map" id="Map">
+            {% for map_row in range(1,5) %}
+            {% for map_col in range(1,5) %}
+            <area href='#' shape="rect" coords="{{ map_n_w * (map_col-1), map_n_h * (map_row-1), map_n_w * map_col, map_n_h * map_row }}" />
+            {% endfor %}
+            {% endfor %}
+        </map>
+    </form>
+    <script>
+        var i = 0;
+        var selectedMaps = [];
+        document.getElementById('Map').addEventListener('click',
+            function (data) {
+                // get clicked map coords
+                selectedMaps[i] = data.target.coords;
+                if (i === 2) {
+                    window.location.replace(
+                        `process?sm1=${btoa(selectedMaps[0])}&sm2=${btoa(selectedMaps[1])}&sm3=${btoa(selectedMaps[2])}`
+                    )
+                } else {
+                    i += 1;
+                }
+            }
+        );
+    </script>
+</body>
+
+</html>
