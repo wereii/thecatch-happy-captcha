@@ -12,3 +12,4 @@ This code was written in fast manner, it's purpouse was to work, not to look (go
 
 ## Notes
 I think the JS map part is somewhat overdone for quick solution.
+I didn't want to implement some kind of machine recognition. You fire up the flask, open localhost:5000, recognize & select the smiling ones by yourself, after selecting third one the frontend would send the data back to flask to do the RGB & xoring part.
