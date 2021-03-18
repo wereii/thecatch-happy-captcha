@@ -3,5 +3,5 @@ Flask==1.0.2
 ItsDangerous==1.0.0
 Jinja2==2.10
 MarkupSafe==1.0
-Pillow==6.2.0
+Pillow==8.1.1
 Werkzeug==0.15.3
